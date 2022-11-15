@@ -1,6 +1,8 @@
 package mailru.nastasiachernega.tests;
 
+import io.qameta.allure.*;
 import mailru.nastasiachernega.pages.RadioButtonPage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -10,6 +12,13 @@ public class TestsRadioButton extends TestConfig {
 
     RadioButtonPage radioButtonPage = new RadioButtonPage();
 
+    @Epic("demoqa.com")
+    @Feature("Radio Button")
+    @Story("Переключение радиобаттонов и проверка вывода результата")
+    @Owner("Anastasia Chernega")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Ссылка на форму Radio Button", url = "https://demoqa.com/radio-button")
+    @DisplayName("Нажатие на Radio {radioName} и проверка вывода результата")
     @ValueSource(strings = {
             "Yes",
             "Impressive",
@@ -26,7 +35,7 @@ public class TestsRadioButton extends TestConfig {
             radioButtonPage.clickRadio(radioName);
         });
 
-        step("Проверяем отображение под переключателями текста: " +
+        step("Проверяем отображение в поле результата текста: " +
                 "You have selected " + radioName, () -> {
             radioButtonPage.checkResult(radioName);
         });

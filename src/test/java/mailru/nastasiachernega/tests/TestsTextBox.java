@@ -1,6 +1,8 @@
 package mailru.nastasiachernega.tests;
 
+import io.qameta.allure.*;
 import mailru.nastasiachernega.pages.TextBoxPage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -8,6 +10,13 @@ import static io.qameta.allure.Allure.step;
 public class TestsTextBox extends TestConfig {
     @Test
 
+    @Epic("demoqa.com")
+    @Feature("Text Box")
+    @Story("Заполнение полей формы и проверка вывода результата")
+    @Owner("Anastasia Chernega")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Ссылка на форму Text Box", url = "https://demoqa.com/text-box")
+    @DisplayName("Заполнение полей Text Box и проверка вывода результата")
      void fillTextBoxForm() {
 
         TextBoxPage textBoxPage = new TextBoxPage();

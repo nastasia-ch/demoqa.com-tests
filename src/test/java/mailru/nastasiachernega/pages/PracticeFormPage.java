@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationFormPage {
+public class PracticeFormPage {
 
     // Elements
     private CalendarComponent calendarComponent = new CalendarComponent();
@@ -32,7 +32,7 @@ public class RegistrationFormPage {
 
     // Actions
 
-    public RegistrationFormPage openPage() {
+    public PracticeFormPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(TITLE_TEXT));
         executeJavaScript("$('footer').remove()");
@@ -40,87 +40,87 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage setFirstName(String value) {
+    public PracticeFormPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setLastName(String value) {
+    public PracticeFormPage setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setEmail(String value) {
+    public PracticeFormPage setEmail(String value) {
         emailInput.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setGender(String value) {
+    public PracticeFormPage setGender(String value) {
         genderInput.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationFormPage setUserNumber(String value) {
+    public PracticeFormPage setUserNumber(String value) {
         userNumberInput.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setBirthDate(String day,String month,String year) {
+    public PracticeFormPage setBirthDate(String day, String month, String year) {
         birthDateInput.click();
         calendarComponent.setDate(day,month,year);
         return this;
     }
 
-    public RegistrationFormPage setSubjects(String[] value) {
+    public PracticeFormPage setSubjects(String[] value) {
         for (String currentValue : value) {
             subjectsInput.setValue(currentValue).pressEnter();
         } return this;
     }
 
-    public RegistrationFormPage setHobbies(String[] value) {
+    public PracticeFormPage setHobbies(String[] value) {
         for (String currentValue : value) {
             hobbiesInput.$(byText(currentValue)).click();
         } return this;
     }
 
-    public RegistrationFormPage choosePicture(String value) {
+    public PracticeFormPage choosePicture(String value) {
         pictureChoice.uploadFromClasspath(value);
         return this;
     }
 
-    public RegistrationFormPage setCurrentAddress(String value) {
+    public PracticeFormPage setCurrentAddress(String value) {
         addressInput.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setState(String value) {
+    public PracticeFormPage setState(String value) {
         $("#state").click();
         stateInput.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationFormPage setCity(String value) {
+    public PracticeFormPage setCity(String value) {
         $("#city").click();
         cityInput.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationFormPage clickSubmit() {
+    public PracticeFormPage clickSubmit() {
         $("#submit").click();
         return this;
     }
 
-    public RegistrationFormPage isResultsTableVisible() {
+    public PracticeFormPage isResultsTableVisible() {
         resultsTableComponent.checkVisible();
         return this;
     }
 
-    public RegistrationFormPage checkResult(String key, String value) {
+    public PracticeFormPage checkResult(String key, String value) {
         resultsTableComponent.checkResultsValue(".table-responsive",key,value);
         return this;
     }
 
-    public RegistrationFormPage checkResultArray(String key, String value[]) {
+    public PracticeFormPage checkResultArray(String key, String value[]) {
         resultsTableComponent.checkResultsArray(key,value);
         return this;
     }

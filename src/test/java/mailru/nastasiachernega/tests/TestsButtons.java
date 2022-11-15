@@ -1,7 +1,9 @@
 package mailru.nastasiachernega.tests;
 
+import io.qameta.allure.*;
 import mailru.nastasiachernega.pages.ButtonsPage;
 import mailru.nastasiachernega.utils.ButtonNameTransformerUtil;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -22,6 +24,13 @@ public class TestsButtons extends TestConfig {
                 Arguments.of("Click Me")
         );
     }
+    @Epic("demoqa.com")
+    @Feature("Buttons")
+    @Story("Нажатие кнопок и проверка вывода результата")
+    @Owner("Anastasia Chernega")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Ссылка на форму Buttons", url = "https://demoqa.com/buttons")
+    @DisplayName("Нажатие на кнопку и проверка вывода результата")
     @MethodSource("clickOnButton")
     @ParameterizedTest
     void clickOnButton(String buttonName) {
@@ -30,11 +39,11 @@ public class TestsButtons extends TestConfig {
             buttonsPage.openPage();
         });
 
-        step("Нажимаем на кнопку" + "'" + buttonName + "'", ()-> {
+        step("Нажимаем на кнопку " + "'" + buttonName + "'", ()-> {
             buttonsPage.clickButton(buttonName);
         });
 
-        step("Проверяем отображение под кнопками текста: 'You have done a " +
+        step("Проверяем отображение в поле результата текста: 'You have done a " +
                 buttonNameTransformerUtil.buttonNameTransformer(buttonName) + "'", ()-> {
             buttonsPage.checkResultOfButtonClick(buttonName);
         });
