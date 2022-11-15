@@ -116,7 +116,7 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage checkResult(String key, String value) {
-        resultsTableComponent.checkResultsValue(key,value);
+        resultsTableComponent.checkResultsValue(".table-responsive",key,value);
         return this;
     }
 

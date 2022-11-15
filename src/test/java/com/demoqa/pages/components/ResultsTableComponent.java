@@ -17,8 +17,8 @@ public class ResultsTableComponent {
         return this;
     }
 
-    public ResultsTableComponent checkResultsValue(String key, String value) {
-        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
+    public ResultsTableComponent checkResultsValue(String cssSelector, String key, String value) {
+        $(cssSelector).$(byText(key)).parent().shouldHave(text(value));
         return this;
     }
 

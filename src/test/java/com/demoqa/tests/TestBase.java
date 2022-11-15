@@ -6,7 +6,7 @@ import com.demoqa.utils.RandomDate;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 
-import java.util.*;
+import java.util.Locale;
 
 public class TestBase {
 
@@ -28,7 +28,8 @@ public class TestBase {
     String[] citiesRajasthan = {"Jaipur","Jaiselmer"};
 
     // Тестовые данные - генерация/выбор рандомных
-    String firstName = faker.name().firstName(),
+    String fullName = faker.name().fullName(),
+           firstName = faker.name().firstName(),
            lastName = faker.name().lastName(),
            email = faker.internet().emailAddress(),
            gender = randomArray.chooseOneRandomValueFromArray(genderList),
@@ -38,6 +39,7 @@ public class TestBase {
            dayOfBirth = randomDate.getRandomDay(),
            pictureName = randomArray.chooseOneRandomValueFromArray(namePicturesList),
            currentAddress = faker.address().fullAddress(),
+           permanentAddress = faker.address().fullAddress(),
            state = randomArray.chooseOneRandomValueFromArray(statesList),
            city = chooseRandomCity();
 
@@ -67,4 +69,5 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.holdBrowserOpen = true;
     }
+
 }
