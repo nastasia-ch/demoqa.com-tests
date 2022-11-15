@@ -1,8 +1,9 @@
-package com.demoqa.pages;
+package mailru.nastasiachernega.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.demoqa.pages.components.ResultsTableComponent;
+import mailru.nastasiachernega.pages.components.ResultsTableComponent;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -49,6 +50,11 @@ public class TextBoxPage {
 
     public TextBoxPage clickSubmit() {
         $("#submit").click();
+        return this;
+    }
+
+    public TextBoxPage isResultsFieldVisible() {
+        $("#output").should(appear);
         return this;
     }
 

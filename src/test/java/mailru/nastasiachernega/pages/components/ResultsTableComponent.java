@@ -1,6 +1,4 @@
-package com.demoqa.pages.components;
-
-import com.codeborne.selenide.Condition;
+package mailru.nastasiachernega.pages.components;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;

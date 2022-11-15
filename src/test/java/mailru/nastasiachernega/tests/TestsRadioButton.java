@@ -1,12 +1,12 @@
-package com.demoqa.tests;
+package mailru.nastasiachernega.tests;
 
-import com.demoqa.pages.RadioButtonPage;
+import mailru.nastasiachernega.pages.RadioButtonPage;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static io.qameta.allure.Allure.step;
 
-public class TestRadioButton extends TestBase {
+public class TestsRadioButton extends TestConfig {
 
     RadioButtonPage radioButtonPage = new RadioButtonPage();
 
@@ -16,19 +16,19 @@ public class TestRadioButton extends TestBase {
             "No"
     })
     @ParameterizedTest
-    void clickOnRadioButton(String nameOfRadio) {
+    void clickOnRadioButton(String radioName) {
 
         step("Открываем форму", () -> {
             radioButtonPage.openPage();
         });
 
-        step("Нажимаем на переключатель с названием " + nameOfRadio, () -> {
-            radioButtonPage.clickRadio(nameOfRadio);
+        step("Нажимаем на переключатель " + "'" + radioName + "'", () -> {
+            radioButtonPage.clickRadio(radioName);
         });
 
         step("Проверяем отображение под переключателями текста: " +
-                "You have selected " + nameOfRadio, () -> {
-            radioButtonPage.checkResult(nameOfRadio);
+                "You have selected " + radioName, () -> {
+            radioButtonPage.checkResult(radioName);
         });
 
     }

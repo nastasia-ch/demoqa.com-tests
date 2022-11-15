@@ -1,14 +1,12 @@
-package com.demoqa.tests;
+package mailru.nastasiachernega.tests;
 
-import com.codeborne.selenide.Configuration;
-import com.demoqa.utils.RandomArray;
-import com.demoqa.utils.RandomDate;
+import mailru.nastasiachernega.utils.RandomArray;
+import mailru.nastasiachernega.utils.RandomDate;
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.BeforeAll;
 
 import java.util.Locale;
 
-public class TestBase {
+public class TestDate {
 
     private final RandomDate randomDate = new RandomDate();
     private final RandomArray randomArray = new RandomArray();
@@ -62,12 +60,6 @@ public class TestBase {
                 break;
         }
         return city;
-    }
-
-    @BeforeAll
-    static void setUp() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
     }
 
 }

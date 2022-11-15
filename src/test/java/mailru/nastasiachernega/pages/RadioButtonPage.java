@@ -1,4 +1,4 @@
-package com.demoqa.pages;
+package mailru.nastasiachernega.pages;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -16,14 +16,14 @@ public class RadioButtonPage {
         return this;
     }
 
-    public RadioButtonPage clickRadio(String nameOfRadio) {
-        $("[for="+nameOfRadio.toLowerCase()+"Radio]").click();
+    public RadioButtonPage clickRadio(String radioName) {
+        $("[for="+radioName.toLowerCase()+"Radio]").click();
         return this;
     }
 
-    public RadioButtonPage checkResult(String nameOfRadio) {
-        $("[for="+nameOfRadio.toLowerCase()+"Radio]").parent().parent().lastChild().
-                shouldHave(text("You have selected " + nameOfRadio));
+    public RadioButtonPage checkResult(String radioName) {
+        $("[for="+radioName.toLowerCase()+"Radio]").parent().parent().lastChild().
+                shouldHave(text("You have selected " + radioName));
         return this;
     }
 

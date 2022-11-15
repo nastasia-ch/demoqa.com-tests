@@ -1,4 +1,4 @@
-package com.demoqa.utils;
+package mailru.nastasiachernega.utils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

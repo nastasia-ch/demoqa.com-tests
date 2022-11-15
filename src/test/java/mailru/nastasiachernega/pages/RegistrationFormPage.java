@@ -1,8 +1,8 @@
-package com.demoqa.pages;
+package mailru.nastasiachernega.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.demoqa.pages.components.CalendarComponent;
-import com.demoqa.pages.components.ResultsTableComponent;
+import mailru.nastasiachernega.pages.components.CalendarComponent;
+import mailru.nastasiachernega.pages.components.ResultsTableComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;

@@ -1,4 +1,4 @@
-package com.demoqa.utils;
+package mailru.nastasiachernega.utils;
 
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
