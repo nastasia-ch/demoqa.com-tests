@@ -13,7 +13,8 @@ public class TestConfig {
     @BeforeAll
     static void setUp() {
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
+        //Configuration.holdBrowserOpen = true;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
