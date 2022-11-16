@@ -18,7 +18,7 @@ public class TestsRadioButton extends TestConfig {
     @Owner("Anastasia Chernega")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Ссылка на форму Radio Button", url = "https://demoqa.com/radio-button")
-    @DisplayName("Нажатие на Radio {radioName} и проверка вывода результата")
+    @DisplayName("Нажатие на Radio и проверка вывода результата")
     @ValueSource(strings = {
             "Yes",
             "Impressive",
