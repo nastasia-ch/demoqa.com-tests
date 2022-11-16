@@ -3,6 +3,7 @@ package mailru.nastasiachernega.tests;
 import io.qameta.allure.*;
 import mailru.nastasiachernega.pages.PracticeFormPage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -74,6 +75,7 @@ public class TestsPracticeForm extends TestConfig {
     @Link(value = "Ссылка на Practice Form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Заполнение МИНИМАЛЬНО требуемых полей Practice Form и проверка вывода результата")
     @Test
+    @Tag("minimum_of_tests")
     void fillPracticeFormWithMinimumData() {
 
         step("Открываем форму", () -> {

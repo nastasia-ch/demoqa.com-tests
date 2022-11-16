@@ -26,10 +26,27 @@ dependencies {
             "com.codeborne:selenide:6.9.0",
             "com.github.javafaker:javafaker:1.0.2",
             "org.junit.jupiter:junit-jupiter:5.9.0",
-            "io.qameta.allure:allure-selenide:2.20.1"
+            "io.qameta.allure:allure-selenide:2.20.1",
+            "org.slf4j:slf4j-simple:2.0.3" // бибилиотека логирования
     )
 }
 
-test {
+// настройка логирования
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+// настройка запуска тестов с определенным тагом
+task minimum_of_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags "minimum_of_tests"
+    }
 }
