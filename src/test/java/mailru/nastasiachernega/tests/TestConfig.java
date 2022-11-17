@@ -15,37 +15,39 @@ public class TestConfig {
 
         Configuration.baseUrl = "https://demoqa.com";
 //      Configuration.holdBrowserOpen = true;
+
         Configuration.browser = browserName;
         Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.browserSize = System.getProperty("browserSize");
 
-        String remoteURL = System.getProperty("remoteUrl");
-        if (remoteURL != null) {
-            Configuration.remote = remoteURL;
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", true);
-            Configuration.browserCapabilities = capabilities;
+        String remoteUrl= System.getProperty("remoteURL");
+        if (remoteUrl != null) {
+            Configuration.remote = remoteUrl;
         }
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
 
         SelenideLogger.addListener("allure", new AllureSelenide());
 
     }
 
-    static final String browserName = getBrowser();
-    public static String getBrowser() {
-        String result = System.getProperty("browser", "chrome");
-        return result;
+    private static String browserName = getBrowserName();
+    private static String getBrowserName() {
+        String browserName = System.getProperty("browser", "chrome");
+        return  browserName;
     }
 
-        @AfterEach
-        void addAttachments () {
-            Attach.screenshotAs("Last screenshot");
-            Attach.pageSource();
-            if(browserName == "chrome") {
-                Attach.browserConsoleLogs();
-            }
-            Attach.addVideo();
+    @AfterEach
+    void addAttachments () {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        if(browserName.equals("firefox") == false) {
+            Attach.browserConsoleLogs();
         }
+        Attach.addVideo();
+    }
 
 }
