@@ -15,19 +15,19 @@ public class TestConfig {
 
         Configuration.baseUrl = "https://demoqa.com";
 //      Configuration.holdBrowserOpen = true;
-        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browser = System.getProperty("browser", "firefox");
         Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.browserSize = System.getProperty("browserSize");
 
-        if (System.getProperty("remote_url") != null) {
-            Configuration.remote = System.getProperty("remote_url");
+        if (System.getProperty("remoteUrl") != null) {
+            Configuration.remote = System.getProperty("remoteUrl");
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
             Configuration.browserCapabilities = capabilities;
-
-            SelenideLogger.addListener("allure", new AllureSelenide());
         }
+            SelenideLogger.addListener("allure", new AllureSelenide());
+
     }
 
         @AfterEach
