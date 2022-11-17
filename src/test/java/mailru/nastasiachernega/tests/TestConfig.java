@@ -15,26 +15,36 @@ public class TestConfig {
 
         Configuration.baseUrl = "https://demoqa.com";
 //      Configuration.holdBrowserOpen = true;
-        Configuration.browser = System.getProperty("browser", "firefox");
+        Configuration.browser = browserName;
         Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.browserSize = System.getProperty("browserSize");
 
-        if (System.getProperty("remoteUrl") != null) {
-            Configuration.remote = System.getProperty("remoteUrl");
+        String remoteURL = System.getProperty("remoteUrl");
+        if (remoteURL != null) {
+            Configuration.remote = remoteURL;
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
             Configuration.browserCapabilities = capabilities;
         }
-            SelenideLogger.addListener("allure", new AllureSelenide());
 
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+    }
+
+    static final String browserName = getBrowser();
+    public static String getBrowser() {
+        String result = System.getProperty("browser", "chrome");
+        return result;
     }
 
         @AfterEach
         void addAttachments () {
             Attach.screenshotAs("Last screenshot");
             Attach.pageSource();
-            Attach.browserConsoleLogs();
+            if(browserName == "chrome") {
+                Attach.browserConsoleLogs();
+            }
             Attach.addVideo();
         }
 
