@@ -16,26 +16,26 @@ public class TestConfig {
         Configuration.baseUrl = "https://demoqa.com";
 //      Configuration.holdBrowserOpen = true;
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "100");
-        Configuration.browserSize = System.getProperty("browserSize","1920x1080");
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.browserVersion = System.getProperty("browserVersion");
+        Configuration.browserSize = System.getProperty("browserSize");
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-//      capabilities.setCapability("browserName", "chrome");
-//      capabilities.setCapability("browserVersion", "100.0");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
+        if (System.getProperty("remote_url") != null) {
+            Configuration.remote = System.getProperty("remote_url");
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
+            Configuration.browserCapabilities = capabilities;
 
-        SelenideLogger.addListener("allure", new AllureSelenide());
+            SelenideLogger.addListener("allure", new AllureSelenide());
+        }
     }
 
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-    }
+        @AfterEach
+        void addAttachments () {
+            Attach.screenshotAs("Last screenshot");
+            Attach.pageSource();
+            Attach.browserConsoleLogs();
+            Attach.addVideo();
+        }
 
 }
