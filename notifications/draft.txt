@@ -1,4 +1,10 @@
-
+Имя бота:
+Tests Notifications Bot
+Username  бота:
+nch_tests_notifications_bot
+Токен:
+5521037688:AAFBgtdlES6v9k7sDoe0XNaPFYh1kkZVQw0
+id chat -1001798559033
 
 Отправка уведомдения allure-notification:
 java -DconfigFile=notifications/telegram.json -jar notifications/allure-notifications-4.2.1.jar
