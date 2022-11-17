@@ -1,0 +1,4 @@
+
+
+Отправка уведомдения allure-notification:
+java -DconfigFile=notifications/telegram.json -jar notifications/allure-notifications-4.2.1.jar
