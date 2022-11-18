@@ -50,3 +50,10 @@ task minimum_of_tests(type: Test) {
         includeTags "minimum_of_tests"
     }
 }
+
+// настройка запуска всех тестов, кроме тестов с определенным тагом
+task noButtonTests(type: Test) {
+    useJUnitPlatform {
+        excludeTags "button_tests"
+    }
+}
