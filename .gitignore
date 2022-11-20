@@ -14,8 +14,8 @@
 *.properties
 
 # Package Files #
-*.jar
 notifications/allure-notifications-4.2.1.jar
+*.jar
 *.war
 *.nar
 *.ear
