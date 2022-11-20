@@ -15,6 +15,7 @@
 
 # Package Files #
 *.jar
+notifications/allure-notifications-4.2.1.jar
 *.war
 *.nar
 *.ear
