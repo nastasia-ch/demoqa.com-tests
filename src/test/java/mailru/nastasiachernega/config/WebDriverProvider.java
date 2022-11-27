@@ -38,12 +38,6 @@ public class WebDriverProvider {
 
     }
 
-    /*private static String browserName = getBrowserName();
-    private static String getBrowserName() {
-        String browserName = System.getProperty("browser", "chrome");
-        return  browserName;
-    }*/
-
     @AfterEach
     void addAttachments () {
         Attach.screenshotAs("Last screenshot");
