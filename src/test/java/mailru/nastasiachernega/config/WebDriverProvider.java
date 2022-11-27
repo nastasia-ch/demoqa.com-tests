@@ -1,29 +1,33 @@
-package mailru.nastasiachernega.tests;
+package mailru.nastasiachernega.config;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import mailru.nastasiachernega.helpers.Attach;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class TestConfig {
+public class WebDriverProvider {
 
     @BeforeAll
     static void setUp() {
 
-        Configuration.baseUrl = "https://demoqa.com";
-//      Configuration.holdBrowserOpen = true;
+        System.getProperty("environment");
 
-        Configuration.browser = browserName;
-        Configuration.browserVersion = System.getProperty("browserVersion");
-        Configuration.browserSize = System.getProperty("browserSize");
+        WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class,System.getProperties());
 
-        String remoteUrl= System.getProperty("remoteURL");
+        Configuration.browser = config.getBrowserName();
+        Configuration.browserVersion = config.getBrowserVersion();
+        Configuration.browserSize = config.getBrowserSize();
+
+        String remoteUrl= config.getRemoteURLForTestRun();
         if (remoteUrl != null) {
             Configuration.remote = remoteUrl;
         }
+
+        Configuration.baseUrl = config.getBaseURL();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
@@ -34,17 +38,18 @@ public class TestConfig {
 
     }
 
-    private static String browserName = getBrowserName();
+    /*private static String browserName = getBrowserName();
     private static String getBrowserName() {
         String browserName = System.getProperty("browser", "chrome");
         return  browserName;
-    }
+    }*/
 
     @AfterEach
     void addAttachments () {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        if(browserName.equals("firefox") == false) {
+        WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class,System.getProperties());
+        if(config.getBrowserName().equals("firefox") == false) {
             Attach.browserConsoleLogs();
         }
         Attach.addVideo();

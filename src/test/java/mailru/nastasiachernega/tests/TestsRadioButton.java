@@ -1,6 +1,7 @@
 package mailru.nastasiachernega.tests;
 
 import io.qameta.allure.*;
+import mailru.nastasiachernega.config.WebDriverProvider;
 import mailru.nastasiachernega.pages.RadioButtonPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -8,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static io.qameta.allure.Allure.step;
 
-public class TestsRadioButton extends TestConfig {
+public class TestsRadioButton extends WebDriverProvider {
 
     RadioButtonPage radioButtonPage = new RadioButtonPage();
 

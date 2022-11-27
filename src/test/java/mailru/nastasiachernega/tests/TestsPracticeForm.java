@@ -1,6 +1,7 @@
 package mailru.nastasiachernega.tests;
 
 import io.qameta.allure.*;
+import mailru.nastasiachernega.config.WebDriverProvider;
 import mailru.nastasiachernega.pages.PracticeFormPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 
-public class TestsPracticeForm extends TestConfig {
+public class TestsPracticeForm extends WebDriverProvider {
 
     PracticeFormPage registrationFormPage = new PracticeFormPage();
     TestDate testDate = new TestDate();

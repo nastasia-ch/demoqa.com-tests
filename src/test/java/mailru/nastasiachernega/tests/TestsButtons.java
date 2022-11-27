@@ -1,6 +1,7 @@
 package mailru.nastasiachernega.tests;
 
 import io.qameta.allure.*;
+import mailru.nastasiachernega.config.WebDriverProvider;
 import mailru.nastasiachernega.pages.ButtonsPage;
 import mailru.nastasiachernega.utils.ButtonNameTransformerUtil;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +14,7 @@ import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.step;
 
-public class TestsButtons extends TestConfig {
+public class TestsButtons extends WebDriverProvider {
 
     ButtonsPage buttonsPage = new ButtonsPage();
     ButtonNameTransformerUtil buttonNameTransformerUtil = new ButtonNameTransformerUtil();

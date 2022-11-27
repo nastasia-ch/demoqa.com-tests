@@ -23,11 +23,12 @@ allure {
 
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:6.9.0",
+            "com.codeborne:selenide:6.10.0",
             "com.github.javafaker:javafaker:1.0.2",
             "org.junit.jupiter:junit-jupiter:5.9.0",
             "io.qameta.allure:allure-selenide:2.20.1",
-            "org.slf4j:slf4j-simple:2.0.3" // бибилиотека логирования
+            "org.slf4j:slf4j-simple:2.0.4", // бибилиотека логирования
+            "org.aeonbits.owner:owner:1.0.12"
     )
 }
 

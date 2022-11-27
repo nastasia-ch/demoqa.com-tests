@@ -1,13 +1,14 @@
 package mailru.nastasiachernega.tests;
 
 import io.qameta.allure.*;
+import mailru.nastasiachernega.config.WebDriverProvider;
 import mailru.nastasiachernega.pages.TextBoxPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 
-public class TestsTextBox extends TestConfig {
+public class TestsTextBox extends WebDriverProvider {
     @Test
 
     @Epic("demoqa.com")
