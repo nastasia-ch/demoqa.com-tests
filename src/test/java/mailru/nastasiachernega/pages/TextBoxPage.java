@@ -3,8 +3,7 @@ package mailru.nastasiachernega.pages;
 import com.codeborne.selenide.SelenideElement;
 import mailru.nastasiachernega.pages.components.ResultsTableComponent;
 
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
@@ -60,6 +59,17 @@ public class TextBoxPage {
 
     public TextBoxPage checkResult(String key, String value) {
         resultsTableComponent.checkResultsValue("#output",key,value);
+        return this;
+    }
+
+    public TextBoxPage isResultFieldEmpty() {
+        $("#output div").
+                shouldNotHave(attributeMatching("class","border"));
+        return this;
+    }
+
+    public TextBoxPage isEmailInputWrong() {
+        emailInput.shouldHave(cssClass("field-error"));
         return this;
     }
 

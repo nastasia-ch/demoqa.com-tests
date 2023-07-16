@@ -32,7 +32,7 @@ public class TestsPracticeForm extends WebDriverProvider {
             registrationFormPage
                     .setFirstName(testDate.firstName)
                     .setLastName(testDate.lastName)
-                    .setEmail(testDate.email)
+                    .setEmail(testDate.validEmail)
                     .setGender(testDate.gender)
                     .setUserNumber(testDate.phoneNumber)
                     .setBirthDate(testDate.dayOfBirth,testDate.monthOfBirth,testDate.yearOfBirth)
@@ -55,7 +55,7 @@ public class TestsPracticeForm extends WebDriverProvider {
         step("Проверяем вывод результата", () -> {
             registrationFormPage
                     .checkResult("Student Name",testDate.firstName+" "+testDate.lastName)
-                    .checkResult("Student Email",testDate.email)
+                    .checkResult("Student Email",testDate.validEmail)
                     .checkResult("Gender",testDate.gender)
                     .checkResult("Mobile",testDate.phoneNumber)
                     .checkResult("Date of Birth",

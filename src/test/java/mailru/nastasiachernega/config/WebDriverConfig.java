@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 @Config.Sources({
         "classpath:${environment}.properties",
-        "classpath:chrome-remote-v100.properties"
+        "classpath:chrome-local.properties"
 })
 public interface WebDriverConfig extends Config {
 
