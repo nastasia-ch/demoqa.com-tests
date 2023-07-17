@@ -1,15 +1,7 @@
 package mailru.nastasiachernega.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.commands.PressEnter;
-import mailru.nastasiachernega.helpers.ColorFieldsTypes;
-import org.aeonbits.owner.Config;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import org.slf4j.event.KeyValuePair;
-
-import java.awt.event.KeyEvent;
-import java.security.KeyPair;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;

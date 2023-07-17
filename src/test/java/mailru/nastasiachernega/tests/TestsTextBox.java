@@ -19,13 +19,13 @@ public class TestsTextBox extends WebDriverProvider {
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Ссылка на форму Text Box", url = "https://demoqa.com/text-box")
     @Test
-     void fillTextBoxForm() {
+    void sendFormWithValidData() {
 
         step("Открываем форму", () -> {
             textBoxPage.openPage();
         });
 
-        step("Заполняем поля формы", () -> {
+        step("Заполняем поля формы валидными данными", () -> {
             textBoxPage.
                     setFullName(testDate.fullName).
                     setEmail(testDate.validEmail).
@@ -40,10 +40,10 @@ public class TestsTextBox extends WebDriverProvider {
         step("Проверяем вывод в поле с результатами", () -> {
             textBoxPage
                     .isResultsFieldVisible()
-                    .checkResult("Name:",testDate.fullName)
-                    .checkResult("Email:",testDate.validEmail)
-                    .checkResult("Current Address :",testDate.currentAddress)
-                    .checkResult("Permananet Address :",testDate.permanentAddress);
+                    .checkResult("Name:", testDate.fullName)
+                    .checkResult("Email:", testDate.validEmail)
+                    .checkResult("Current Address :", testDate.currentAddress)
+                    .checkResult("Permananet Address :", testDate.permanentAddress);
         });
 
     }
@@ -55,7 +55,7 @@ public class TestsTextBox extends WebDriverProvider {
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Ссылка на форму Text Box", url = "https://demoqa.com/text-box")
     @Test
-    void sendEmptyTextBoxForm() {
+    void sendEmptyForm() {
 
         step("Открываем форму", () -> {
             textBoxPage.openPage();
@@ -75,7 +75,7 @@ public class TestsTextBox extends WebDriverProvider {
 
     @Epic("demoqa.com")
     @Feature("Text Box")
-    @Story("Отправка формы с невалидным электронным адресом")
+    @Story("Отправка формы с невалидным email")
     @Owner("Anastasia Chernega")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Ссылка на форму Text Box", url = "https://demoqa.com/text-box")
@@ -86,7 +86,7 @@ public class TestsTextBox extends WebDriverProvider {
             textBoxPage.openPage();
         });
 
-        step("Заполняем поля формы", () -> {
+        step("Заполняем поля формы (в поле Email указываем невалидный email)", () -> {
             textBoxPage.
                     setFullName(testDate.fullName).
                     setEmail(testDate.invalidEmail).
@@ -98,15 +98,12 @@ public class TestsTextBox extends WebDriverProvider {
             textBoxPage.clickSubmit();
         });
 
-        step("Проверяем, поле ввода email", () -> {
-            textBoxPage
-                    .isEmailInputWrong();
+        step("Проверяем, что поле Email подсветилось красным", () -> {
+            textBoxPage.isEmailInputWrong();
         });
 
-        step("Проверяем, что поле с результатами пустое", () -> {
-            textBoxPage
-                    .isResultsFieldVisible()
-                    .isResultFieldEmpty();
+        step("Проверяем отсутствие поля с результатами", () -> {
+            textBoxPage.isResultsFieldHidden();
         });
 
     }

@@ -63,13 +63,20 @@ public class TextBoxPage {
     }
 
     public TextBoxPage isResultFieldEmpty() {
-        $("#output div").
-                shouldNotHave(attributeMatching("class","border"));
+        $("#output div").shouldBe(empty);
+//        $("#output div").
+//                shouldNotHave(attributeMatching("class","border"));
         return this;
     }
 
     public TextBoxPage isEmailInputWrong() {
         emailInput.shouldHave(cssClass("field-error"));
+        emailInput.shouldHave(cssValue("border","1px solid rgb(255, 0, 0)"));
+        return this;
+    }
+
+    public TextBoxPage isResultsFieldHidden() {
+        $("#output").should(hidden);
         return this;
     }
 

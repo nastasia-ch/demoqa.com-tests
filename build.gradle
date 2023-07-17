@@ -1,5 +1,5 @@
 plugins {
-    id 'java-library'
+    id 'java'
     id 'io.qameta.allure' version '2.11.2'
 }
 
@@ -7,15 +7,17 @@ repositories {
     mavenCentral()
 }
 
+def allureVersion = "2.22.1"
+
 allure {
     report {
-        version.set("2.21.0")
+        version.set(allureVersion)
     }
-    adapter {
-        aspectjWeaver.set(true)
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
         frameworks {
-            junit5 {
-                adapterVersion.set("2.21.0")
+            junit5 { //название фреймворка
+                adapterVersion.set(allureVersion) //версия интеграции фреймворка и Allure
             }
         }
     }
@@ -23,16 +25,19 @@ allure {
 
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:6.12.3",
-            "com.github.javafaker:javafaker:1.0.2",
-            "org.junit.jupiter:junit-jupiter:5.9.2",
-            "io.qameta.allure:allure-selenide:2.21.0",
-            "org.slf4j:slf4j-simple:2.0.5", // бибилиотека логирования
-            "org.aeonbits.owner:owner:1.0.12"
+            'com.codeborne:selenide:6.12.3',
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            'org.junit.jupiter:junit-jupiter:5.9.0',
+            'org.aeonbits.owner:owner:1.0.12',
+            'com.github.javafaker:javafaker:1.0.2',
+            'org.slf4j:slf4j-simple:2.0.5',
     )
 }
 
-// настройка логирования
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
@@ -42,19 +47,5 @@ tasks.withType(Test) {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
-    }
-}
-
-// настройка запуска тестов с определенным тагом
-task minimum_of_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags "minimum_of_tests"
-    }
-}
-
-// настройка запуска всех тестов, кроме тестов с определенным тагом
-task noButtonTests(type: Test) {
-    useJUnitPlatform {
-        excludeTags "button_tests"
     }
 }

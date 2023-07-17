@@ -11,9 +11,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static mailru.nastasiachernega.helpers.ColorFieldsTypes.Single;
 import static io.qameta.allure.Allure.step;
 import static mailru.nastasiachernega.helpers.ColorFieldsTypes.Multiple;
-import static mailru.nastasiachernega.helpers.ColorFieldsTypes.Single;
 
 public class TestsAutoComplete extends WebDriverProvider {
 
