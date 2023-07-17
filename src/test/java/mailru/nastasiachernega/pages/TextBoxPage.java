@@ -64,8 +64,6 @@ public class TextBoxPage {
 
     public TextBoxPage isResultFieldEmpty() {
         $("#output div").shouldBe(empty);
-//        $("#output div").
-//                shouldNotHave(attributeMatching("class","border"));
         return this;
     }
 

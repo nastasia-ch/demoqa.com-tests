@@ -27,11 +27,11 @@ public class TestsAutoComplete extends WebDriverProvider {
     void typeValidColorInSingleField(String value) {
 
         step("Открываем форму", () ->
-            autoCompletePage.openPage()
+                autoCompletePage.openPage()
         );
 
         step("Вводим в поле валидное значение цвета: " + value, () ->
-            autoCompletePage.typeOneColor(Single, value)
+                autoCompletePage.typeOneColor(Single, value)
         );
 
         step("Проверяем закрепление цвета в поле", () ->
@@ -41,7 +41,7 @@ public class TestsAutoComplete extends WebDriverProvider {
     }
 
     @ValueSource(strings = {
-         "sun"
+            "sun"
     })
     @ParameterizedTest
     void typeInvalidColorInSingleField(String value) {
@@ -62,9 +62,10 @@ public class TestsAutoComplete extends WebDriverProvider {
 
     static Stream<Arguments> typeValidColorInMultipleField() {
         return Stream.of(
-                Arguments.of(List.of("white","black","green","purple","yellow"))
+                Arguments.of(List.of("white", "black", "green", "purple", "yellow"))
         );
     }
+
     @MethodSource()
     @ParameterizedTest
     void typeValidColorInMultipleField(List<String> values) {
@@ -85,9 +86,10 @@ public class TestsAutoComplete extends WebDriverProvider {
 
     static Stream<Arguments> typeInvalidColorInMultipleField() {
         return Stream.of(
-                Arguments.of(List.of("sun","moon","hello"))
+                Arguments.of(List.of("sun", "moon", "hello"))
         );
     }
+
     @MethodSource()
     @ParameterizedTest
     void typeInvalidColorInMultipleField(List<String> values) {
@@ -111,34 +113,58 @@ public class TestsAutoComplete extends WebDriverProvider {
     })
     @ParameterizedTest
     void typeInvalidAndThenValidColor1(String inValidValue, String validValue) {
-        autoCompletePage.openPage().
-                typeOneColor(Multiple,inValidValue).
-                typeOneColor(Multiple,validValue).
-                colorShouldNOTBeFixed(Multiple,validValue);
+
+        step("Открываем форму", () ->
+                autoCompletePage.openPage()
+        );
+
+        step("Вводим в поле невалидное значение цвета: " + inValidValue, () ->
+                autoCompletePage.typeOneColor(Multiple, inValidValue)
+        );
+
+        step("Проверяем, что введенное невалидное значение цвета в поле не закрепилось", () ->
+                autoCompletePage.colorShouldNOTBeFixed(Multiple, inValidValue)
+        );
+
+        step("Вводим в поле валидное значение цвета: " + validValue, () ->
+                autoCompletePage.typeOneColor(Multiple, validValue)
+        );
+
+        step("Проверяем, что введенное валидное значение цвета в поле не закрепилось", () ->
+                autoCompletePage.colorShouldNOTBeFixed(Multiple, validValue)
+        );
     }
 
     @CsvSource(value = {
             "sun, white"
     })
     @ParameterizedTest
-    void typeInvalidAndThenValidColor2(String invalidValue, String validValue) {
-        autoCompletePage.openPage().
-                typeOneColor(Multiple,invalidValue).
-                clearInputValueByBackspace(Multiple,invalidValue).
-                typeOneColor(Multiple,validValue).
-                colorShouldBeFixed(Multiple,validValue);
-    }
+    void typeInvalidAndThenValidColor2(String inValidValue, String validValue) {
 
-    @CsvSource(value = {
-            "sun, white"
-    })
-    @ParameterizedTest
-    void typeInvalidAndThenValidColor3(String invalidValue, String validValue) {
-        autoCompletePage.openPage().
-                typeOneColor(Multiple,invalidValue).
-                clearInputValueByDelete(Multiple);
-                //typeOneColor(Multiple,validValue).
-                //colorShouldBeFixed(Multiple,validValue);
+        step("Открываем форму", () ->
+                autoCompletePage.openPage()
+        );
+
+        step("Вводим в поле невалидное значение цвета: " + inValidValue, () ->
+                autoCompletePage.typeOneColor(Multiple, inValidValue)
+        );
+
+        step("Проверяем, что введенное невалидное значение цвета в поле не закрепилось", () ->
+                autoCompletePage.colorShouldNOTBeFixed(Multiple, inValidValue)
+        );
+
+        step("Удаляем из поля невалидное значение цвета кнопкой Backspace", () ->
+                autoCompletePage.clearInputValueByBackspace(Multiple, inValidValue)
+        );
+
+        step("Вводим в поле валидное значение цвета: " + validValue, () ->
+                autoCompletePage.typeOneColor(Multiple, validValue)
+        );
+
+        step("Проверяем, что введенное валидное значение цвета в поле закрепилось", () ->
+                autoCompletePage.colorShouldBeFixed(Multiple, validValue)
+        );
+
     }
 
 }

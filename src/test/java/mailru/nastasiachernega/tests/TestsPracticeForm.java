@@ -35,7 +35,7 @@ public class TestsPracticeForm extends WebDriverProvider {
                     .setEmail(testDate.validEmail)
                     .setGender(testDate.gender)
                     .setUserNumber(testDate.phoneNumber)
-                    .setBirthDate(testDate.dayOfBirth,testDate.monthOfBirth,testDate.yearOfBirth)
+                    .setBirthDate(testDate.dayOfBirth, testDate.monthOfBirth, testDate.yearOfBirth)
                     .setSubjects(testDate.subjects)
                     .setHobbies(testDate.hobbies)
                     .choosePicture(testDate.pictureName)
@@ -54,17 +54,17 @@ public class TestsPracticeForm extends WebDriverProvider {
 
         step("Проверяем вывод результата", () -> {
             registrationFormPage
-                    .checkResult("Student Name",testDate.firstName+" "+testDate.lastName)
-                    .checkResult("Student Email",testDate.validEmail)
-                    .checkResult("Gender",testDate.gender)
-                    .checkResult("Mobile",testDate.phoneNumber)
+                    .checkResult("Student Name", testDate.firstName + " " + testDate.lastName)
+                    .checkResult("Student Email", testDate.validEmail)
+                    .checkResult("Gender", testDate.gender)
+                    .checkResult("Mobile", testDate.phoneNumber)
                     .checkResult("Date of Birth",
-                            testDate.dayOfBirth+" "+testDate.monthOfBirth+","+testDate.yearOfBirth)
-                    .checkResultArray("Subjects",testDate.subjects)
-                    .checkResultArray("Hobbies",testDate.hobbies)
-                    .checkResult("Picture",testDate.pictureName)
-                    .checkResult("Address",testDate.currentAddress)
-                    .checkResult("State and City",testDate.state+" "+testDate.city);
+                            testDate.dayOfBirth + " " + testDate.monthOfBirth + "," + testDate.yearOfBirth)
+                    .checkResultArray("Subjects", testDate.subjects)
+                    .checkResultArray("Hobbies", testDate.hobbies)
+                    .checkResult("Picture", testDate.pictureName)
+                    .checkResult("Address", testDate.currentAddress)
+                    .checkResult("State and City", testDate.state + " " + testDate.city);
         });
     }
 
@@ -101,9 +101,9 @@ public class TestsPracticeForm extends WebDriverProvider {
 
         step("Проверяем вывод результата", () -> {
             registrationFormPage
-                    .checkResult("Student Name",testDate.firstName+" "+testDate.lastName)
-                    .checkResult("Gender",testDate.gender)
-                    .checkResult("Mobile",testDate.phoneNumber);
+                    .checkResult("Student Name", testDate.firstName + " " + testDate.lastName)
+                    .checkResult("Gender", testDate.gender)
+                    .checkResult("Mobile", testDate.phoneNumber);
         });
     }
 }

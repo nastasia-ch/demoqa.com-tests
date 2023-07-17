@@ -67,20 +67,22 @@ public class PracticeFormPage {
 
     public PracticeFormPage setBirthDate(String day, String month, String year) {
         birthDateInput.click();
-        calendarComponent.setDate(day,month,year);
+        calendarComponent.setDate(day, month, year);
         return this;
     }
 
     public PracticeFormPage setSubjects(String[] value) {
         for (String currentValue : value) {
             subjectsInput.setValue(currentValue).pressEnter();
-        } return this;
+        }
+        return this;
     }
 
     public PracticeFormPage setHobbies(String[] value) {
         for (String currentValue : value) {
             hobbiesInput.$(byText(currentValue)).click();
-        } return this;
+        }
+        return this;
     }
 
     public PracticeFormPage choosePicture(String value) {
@@ -116,12 +118,12 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage checkResult(String key, String value) {
-        resultsTableComponent.checkResultsValue(".table-responsive",key,value);
+        resultsTableComponent.checkResultsValue(".table-responsive", key, value);
         return this;
     }
 
     public PracticeFormPage checkResultArray(String key, String value[]) {
-        resultsTableComponent.checkResultsArray(key,value);
+        resultsTableComponent.checkResultsArray(key, value);
         return this;
     }
 }

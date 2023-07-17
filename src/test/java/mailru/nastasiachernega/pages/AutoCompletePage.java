@@ -82,11 +82,4 @@ public class AutoCompletePage {
         return this;
     }
 
-    public AutoCompletePage clearInputValueByDelete(Enum fieldType) {
-        getFieldInput(fieldType).sendKeys(Keys.chord(Keys.CONTROL,Keys.LEFT));
-        //actions().sendKeys(Keys.chord(Keys.CONTROL,Keys.LEFT)).perform();
-        //actions().sendKeys(Keys.chord(Keys.CONTROL,Keys.SHIFT,Keys.LEFT)).perform();
-        return this;
-    }
-
 }
