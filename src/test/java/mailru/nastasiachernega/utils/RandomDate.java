@@ -5,8 +5,11 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.Locale;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomDate {
+
+    ThreadLocalRandom random = ThreadLocalRandom.current();
 
     private LocalDate generateRandomDate() {
 
@@ -45,6 +48,29 @@ public class RandomDate {
                 toFormatter(Locale.US);
         String randomYear = generateRandomDate().format(yearFormat);
         return randomYear;
+    }
+
+    private String generateRandomHour() {
+        int hourInt = random.nextInt(0, 23);
+        String hourString = hourInt + "";
+        if (hourInt < 10) {
+            hourString = "0" + hourInt;
+        }
+        return hourString;
+    }
+
+    private String generateRandomMinutes() {
+        int randomNumber = random.nextInt(0,3);
+        int minutesInt = 15*randomNumber;
+        String minutesString = minutesInt + "";
+        if (minutesInt < 10) {
+            minutesString = "0" + minutesInt;
+        }
+        return minutesString;
+    }
+
+    public String getRandomTime() {
+        return generateRandomHour() + ":" + generateRandomMinutes();
     }
 
 }

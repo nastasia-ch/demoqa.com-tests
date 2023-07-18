@@ -34,4 +34,19 @@ public class TestsDatePicker extends WebDriverProvider {
 
     }
 
+    @Test
+    void selectDateAndTime() {
+        datePickerPage
+                .openPage()
+                .selectDateAndTime(testDate.dayOfBirth,
+                        testDate.monthOfBirth,
+                        testDate.yearOfBirth,
+                        testDate.time)
+                .checkSelectDateAndTimeResult(testDate.dayOfBirth,
+                        testDate.monthOfBirth,
+                        testDate.yearOfBirth,
+                        testDate.time);
+    }
+
+
 }

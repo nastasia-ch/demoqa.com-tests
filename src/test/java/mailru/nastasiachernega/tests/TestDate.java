@@ -42,6 +42,8 @@ public class TestDate {
            state = randomArray.chooseOneRandomValueFromArray(statesList),
            city = chooseRandomCity();
 
+    String time = randomDate.getRandomTime();
+
     String[] subjects = randomArray.chooseFewRandomValuesFromArray(subjectsList),
              hobbies = randomArray.chooseFewRandomValuesFromArray(hobbiesList);
 

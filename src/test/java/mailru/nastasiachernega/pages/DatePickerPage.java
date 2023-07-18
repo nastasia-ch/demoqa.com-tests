@@ -2,6 +2,7 @@ package mailru.nastasiachernega.pages;
 
 import mailru.nastasiachernega.pages.components.CalendarComponent;
 import mailru.nastasiachernega.utils.DateFormatter;
+import mailru.nastasiachernega.utils.YearSearch;
 
 import java.text.ParseException;
 
@@ -14,6 +15,7 @@ public class DatePickerPage {
 
     private CalendarComponent calendarComponent = new CalendarComponent();
     private DateFormatter dateFormatter = new DateFormatter();
+    private YearSearch yearSearch = new YearSearch();
 
     private final static String TITLE_TEXT = "Date Picker";
 
@@ -35,6 +37,26 @@ public class DatePickerPage {
         $("#datePickerMonthYearInput")
                 .shouldHave(attribute("value",
                         dateFormatter.formatDate(day, month, year, "MM/dd/yyyy")));
+        return  this;
+    }
+
+    public DatePickerPage selectDateAndTime(String day, String month, String year, String time) {
+        $("#dateAndTimePickerInput").click();
+        $(".react-datepicker__month-dropdown-container").click();
+        $$(".react-datepicker__month-option").findBy(text(month)).click();
+        $(".react-datepicker__year-dropdown-container").click();
+        yearSearch.search(year);
+        $(".react-datepicker__day--0"+day+":not(.react-datepicker__day--outside-month)").click();
+        $$(".react-datepicker__time-list-item ").findBy(text(time)).click();
+        return  this;
+    }
+
+    public DatePickerPage checkSelectDateAndTimeResult(String day, String month,
+                                                       String year, String time) {
+        $("#dateAndTimePickerInput")
+                .shouldHave(attribute("value",
+                        dateFormatter.formatDateAndTime(day, month,
+                                year, time, "MMMM d, yyyy h:mm a")));
         return  this;
     }
 
