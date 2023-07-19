@@ -60,8 +60,8 @@ public class RandomDate {
     }
 
     private String generateRandomMinutes() {
-        int randomNumber = random.nextInt(0,3);
-        int minutesInt = 15*randomNumber;
+        int randomNumber = random.nextInt(0, 3);
+        int minutesInt = 15 * randomNumber;
         String minutesString = minutesInt + "";
         if (minutesInt < 10) {
             minutesString = "0" + minutesInt;
