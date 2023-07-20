@@ -33,16 +33,15 @@ public class TestDate {
            invalidEmail = faker.name().username(),
            gender = randomArray.chooseOneRandomValueFromArray(genderList),
            phoneNumber = faker.phoneNumber().subscriberNumber(10),
-           monthOfBirth = randomDate.getRandomMonth(),
-           yearOfBirth = randomDate.getRandomYear(),
-           dayOfBirth = randomDate.getRandomDay(),
+           month = randomDate.getRandomMonth(),
+           year = randomDate.getRandomYear(),
+           day = randomDate.getRandomDay(),
            pictureName = randomArray.chooseOneRandomValueFromArray(namePicturesList),
            currentAddress = faker.address().fullAddress(),
            permanentAddress = faker.address().fullAddress(),
            state = randomArray.chooseOneRandomValueFromArray(statesList),
-           city = chooseRandomCity();
-
-    String time = randomDate.getRandomTime();
+           city = chooseRandomCity(),
+           time = randomDate.getRandomTime();
 
     String[] subjects = randomArray.chooseFewRandomValuesFromArray(subjectsList),
              hobbies = randomArray.chooseFewRandomValuesFromArray(hobbiesList);

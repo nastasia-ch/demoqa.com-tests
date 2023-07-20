@@ -1,5 +1,6 @@
 package mailru.nastasiachernega.pages;
 
+import com.codeborne.selenide.SelenideElement;
 import mailru.nastasiachernega.pages.components.CalendarComponent;
 import mailru.nastasiachernega.utils.DateFormatter;
 import mailru.nastasiachernega.utils.YearSearch;
@@ -15,6 +16,10 @@ public class DatePickerPage {
     private DateFormatter dateFormatter = new DateFormatter();
     private YearSearch yearSearch = new YearSearch();
 
+    private SelenideElement
+            dateInput = $("#datePickerMonthYearInput"),
+            dateAndTimeInput = $("#dateAndTimePickerInput");
+
     private final static String TITLE_TEXT = "Date Picker";
 
     public DatePickerPage openPage() {
@@ -26,33 +31,35 @@ public class DatePickerPage {
     }
 
     public DatePickerPage selectDate(String day, String month, String year) {
-        $("#datePickerMonthYearInput").click();
-        calendarComponent.setDate(day, month, year);
+        dateInput.click();
+        calendarComponent
+                .setMonth(month)
+                .setYear(year)
+                .setDay(day);
         return this;
     }
 
     public DatePickerPage checkSelectDateResult(String day, String month, String year) {
-        $("#datePickerMonthYearInput")
-                .shouldHave(attribute("value",
+        dateInput.shouldHave(attribute("value",
                         dateFormatter.formatDate(day, month, year, "MM/dd/yyyy")));
         return this;
     }
 
     public DatePickerPage selectDateAndTime(String day, String month, String year, String time) {
-        $("#dateAndTimePickerInput").click();
+        dateAndTimeInput.click();
         $(".react-datepicker__month-dropdown-container").click();
         $$(".react-datepicker__month-option").findBy(text(month)).click();
         $(".react-datepicker__year-dropdown-container").click();
         yearSearch.search(year);
-        $(".react-datepicker__day--0" + day + ":not(.react-datepicker__day--outside-month)").click();
-        $$(".react-datepicker__time-list-item ").findBy(text(time)).click();
+        calendarComponent
+                .setDay(day)
+                .setTime(time);
         return this;
     }
 
     public DatePickerPage checkSelectDateAndTimeResult(String day, String month,
                                                        String year, String time) {
-        $("#dateAndTimePickerInput")
-                .shouldHave(attribute("value",
+        dateAndTimeInput.shouldHave(attribute("value",
                         dateFormatter.formatDateAndTime(day, month,
                                 year, time, "MMMM d, yyyy h:mm a")));
         return this;

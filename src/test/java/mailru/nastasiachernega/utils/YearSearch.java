@@ -28,7 +28,7 @@ public class YearSearch {
             }
             listOfYears.get(1).click();
         }
-        if (lowYear > searchingYear) {
+        else if (lowYear > searchingYear) {
             differenceInYears = lowYear - searchingYear;
             for (int i = 0; i < differenceInYears; i++) {
                 previousButton.click();

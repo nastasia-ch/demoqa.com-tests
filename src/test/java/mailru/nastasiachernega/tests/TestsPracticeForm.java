@@ -35,7 +35,7 @@ public class TestsPracticeForm extends WebDriverProvider {
                     .setEmail(testDate.validEmail)
                     .setGender(testDate.gender)
                     .setUserNumber(testDate.phoneNumber)
-                    .setBirthDate(testDate.dayOfBirth, testDate.monthOfBirth, testDate.yearOfBirth)
+                    .setBirthDate(testDate.day, testDate.month, testDate.year)
                     .setSubjects(testDate.subjects)
                     .setHobbies(testDate.hobbies)
                     .choosePicture(testDate.pictureName)
@@ -59,7 +59,7 @@ public class TestsPracticeForm extends WebDriverProvider {
                     .checkResult("Gender", testDate.gender)
                     .checkResult("Mobile", testDate.phoneNumber)
                     .checkResult("Date of Birth",
-                            testDate.dayOfBirth + " " + testDate.monthOfBirth + "," + testDate.yearOfBirth)
+                            testDate.day + " " + testDate.month + "," + testDate.year)
                     .checkResultArray("Subjects", testDate.subjects)
                     .checkResultArray("Hobbies", testDate.hobbies)
                     .checkResult("Picture", testDate.pictureName)
