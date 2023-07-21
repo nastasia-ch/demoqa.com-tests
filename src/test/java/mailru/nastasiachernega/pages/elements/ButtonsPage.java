@@ -1,4 +1,4 @@
-package mailru.nastasiachernega.pages;
+package mailru.nastasiachernega.pages.elements;
 
 import mailru.nastasiachernega.pages.components.ClickComponent;
 

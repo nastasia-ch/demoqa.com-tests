@@ -1,4 +1,4 @@
-package mailru.nastasiachernega.pages;
+package mailru.nastasiachernega.pages.elements;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;

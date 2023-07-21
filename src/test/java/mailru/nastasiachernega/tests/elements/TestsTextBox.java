@@ -1,8 +1,9 @@
-package mailru.nastasiachernega.tests;
+package mailru.nastasiachernega.tests.elements;
 
 import io.qameta.allure.*;
 import mailru.nastasiachernega.config.WebDriverProvider;
-import mailru.nastasiachernega.pages.TextBoxPage;
+import mailru.nastasiachernega.pages.elements.TextBoxPage;
+import mailru.nastasiachernega.tests.TestDate;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;

@@ -1,8 +1,9 @@
-package mailru.nastasiachernega.tests;
+package mailru.nastasiachernega.tests.widgets;
 
 import io.qameta.allure.*;
 import mailru.nastasiachernega.config.WebDriverProvider;
-import mailru.nastasiachernega.pages.DatePickerPage;
+import mailru.nastasiachernega.pages.widgets.DatePickerPage;
+import mailru.nastasiachernega.tests.TestDate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

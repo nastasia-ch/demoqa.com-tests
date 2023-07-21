@@ -1,8 +1,8 @@
-package mailru.nastasiachernega.tests;
+package mailru.nastasiachernega.tests.elements;
 
 import io.qameta.allure.*;
 import mailru.nastasiachernega.config.WebDriverProvider;
-import mailru.nastasiachernega.pages.ButtonsPage;
+import mailru.nastasiachernega.pages.elements.ButtonsPage;
 import mailru.nastasiachernega.utils.ButtonNameTransformerUtil;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;

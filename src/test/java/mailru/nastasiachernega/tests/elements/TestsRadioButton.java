@@ -1,8 +1,8 @@
-package mailru.nastasiachernega.tests;
+package mailru.nastasiachernega.tests.elements;
 
 import io.qameta.allure.*;
 import mailru.nastasiachernega.config.WebDriverProvider;
-import mailru.nastasiachernega.pages.RadioButtonPage;
+import mailru.nastasiachernega.pages.elements.RadioButtonPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;

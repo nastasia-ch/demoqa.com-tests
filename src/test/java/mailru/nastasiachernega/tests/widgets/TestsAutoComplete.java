@@ -1,7 +1,7 @@
-package mailru.nastasiachernega.tests;
+package mailru.nastasiachernega.tests.widgets;
 
 import mailru.nastasiachernega.config.WebDriverProvider;
-import mailru.nastasiachernega.pages.AutoCompletePage;
+import mailru.nastasiachernega.pages.widgets.AutoCompletePage;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;

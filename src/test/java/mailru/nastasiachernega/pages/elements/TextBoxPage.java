@@ -1,4 +1,4 @@
-package mailru.nastasiachernega.pages;
+package mailru.nastasiachernega.pages.elements;
 
 import com.codeborne.selenide.SelenideElement;
 import mailru.nastasiachernega.pages.components.ResultsTableComponent;

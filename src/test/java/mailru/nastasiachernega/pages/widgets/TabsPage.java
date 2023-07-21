@@ -1,4 +1,4 @@
-package mailru.nastasiachernega.pages;
+package mailru.nastasiachernega.pages.widgets;
 
 import java.util.ArrayList;
 import java.util.Map;

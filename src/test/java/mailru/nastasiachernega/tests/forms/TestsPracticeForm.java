@@ -1,8 +1,9 @@
-package mailru.nastasiachernega.tests;
+package mailru.nastasiachernega.tests.forms;
 
 import io.qameta.allure.*;
 import mailru.nastasiachernega.config.WebDriverProvider;
-import mailru.nastasiachernega.pages.PracticeFormPage;
+import mailru.nastasiachernega.pages.forms.PracticeFormPage;
+import mailru.nastasiachernega.tests.TestDate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

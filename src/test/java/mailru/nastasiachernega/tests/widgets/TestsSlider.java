@@ -1,8 +1,8 @@
-package mailru.nastasiachernega.tests;
+package mailru.nastasiachernega.tests.widgets;
 
 import io.qameta.allure.*;
 import mailru.nastasiachernega.config.WebDriverProvider;
-import mailru.nastasiachernega.pages.SliderPage;
+import mailru.nastasiachernega.pages.widgets.SliderPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

@@ -13,20 +13,20 @@ public class TestDate {
     Faker faker = new Faker(new Locale("en"));
 
     // Массивы возможных значений поле Practice Form
-    String[] genderList = {"Male","Female","Other"};
-    String[] subjectsList = {"Accounting","Arts","Biology","Civics","Chemistry",
+    public String[] genderList = {"Male","Female","Other"};
+    public String[] subjectsList = {"Accounting","Arts","Biology","Civics","Chemistry",
             "Computer Science","Commerce","Economics","English","Hindi",
             "History","Maths","Physics","Social Studies"};
-    String[] hobbiesList = {"Sports", "Reading", "Music"};
-    String[] namePicturesList = {"cat.jpeg","owl.jpeg","raccoon.jpeg"};
-    String[] statesList = {"NCR","Uttar Pradesh","Haryana","Rajasthan"};
-    String[] citiesNCRList = {"Delhi","Gurgaon","Noida"};
-    String[] citiesUttarPradeshList = {"Agra","Lucknow","Merrut"};
-    String[] citiesHaryanaList = {"Karnal","Panipat"};
-    String[] citiesRajasthan = {"Jaipur","Jaiselmer"};
+    public String[] hobbiesList = {"Sports", "Reading", "Music"};
+    public String[] namePicturesList = {"cat.jpeg","owl.jpeg","raccoon.jpeg"};
+    public String[] statesList = {"NCR","Uttar Pradesh","Haryana","Rajasthan"};
+    public String[] citiesNCRList = {"Delhi","Gurgaon","Noida"};
+    public String[] citiesUttarPradeshList = {"Agra","Lucknow","Merrut"};
+    public String[] citiesHaryanaList = {"Karnal","Panipat"};
+    public String[] citiesRajasthan = {"Jaipur","Jaiselmer"};
 
     // Тестовые данные - генерация/выбор рандомных
-    String fullName = faker.name().fullName(),
+    public String fullName = faker.name().fullName(),
            firstName = faker.name().firstName(),
            lastName = faker.name().lastName(),
            validEmail = faker.internet().emailAddress(),
@@ -43,7 +43,7 @@ public class TestDate {
            city = chooseRandomCity(),
            time = randomDate.getRandomTime();
 
-    String[] subjects = randomArray.chooseFewRandomValuesFromArray(subjectsList),
+    public String[] subjects = randomArray.chooseFewRandomValuesFromArray(subjectsList),
              hobbies = randomArray.chooseFewRandomValuesFromArray(hobbiesList);
 
     private String chooseRandomCity() {
@@ -65,7 +65,7 @@ public class TestDate {
     }
 
     // Значения для Tabs
-    HashMap<String, ArrayList<String>> tabs = new HashMap<>();
+    public HashMap<String, ArrayList<String>> tabs = new HashMap<>();
     {
         tabs.put("What", new ArrayList<>());
         tabs.get("What").add(0,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
