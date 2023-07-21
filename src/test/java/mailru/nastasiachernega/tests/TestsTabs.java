@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.step;
@@ -88,13 +89,6 @@ public class TestsTabs extends WebDriverProvider {
         });
     }
 
-    @Epic("demoqa.com")
-    @Feature("Tabs")
-    @Story("Проверка, что при открытии одной вкладки, текст остальных вкладкок скрыт")
-    @Owner("Anastasia Chernega")
-    @Severity(SeverityLevel.BLOCKER)
-    @Link(value = "Ссылка на Tabs", url = "https://demoqa.com/tabs")
-    @DisplayName("Проверка, что при открытии одной вкладки, текст остальных вкладкок скрыт")
     static Stream<Arguments> checkOneTabActiveAndOthersHidden() {
         return Stream.of(
                 Arguments.of("What", new String[]{"Origin", "Use", "More"}),
@@ -103,6 +97,13 @@ public class TestsTabs extends WebDriverProvider {
         );
     }
 
+    @Epic("demoqa.com")
+    @Feature("Tabs")
+    @Story("Проверка, что при открытии одной вкладки, текст остальных вкладкок скрыт")
+    @Owner("Anastasia Chernega")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Ссылка на Tabs", url = "https://demoqa.com/tabs")
+    @DisplayName("Проверка, что при открытии одной вкладки, текст остальных вкладкок скрыт")
     @MethodSource()
     @ParameterizedTest
     void checkOneTabActiveAndOthersHidden(String activeTab, String[] hiddenTabs) {
@@ -117,7 +118,7 @@ public class TestsTabs extends WebDriverProvider {
                     .tabShouldBeActive(activeTab);
         });
 
-        step("Проверяем, что другие вкладки " + hiddenTabs.toString() + " не активны", () -> {
+        step("Проверяем, что другие вкладки " + Arrays.toString(hiddenTabs) + " не активны", () -> {
             tabsPage
                     .tabsShouldBeAHidden(hiddenTabs);
         });
@@ -152,6 +153,5 @@ public class TestsTabs extends WebDriverProvider {
             tabsPage.checkTabText(testDate.tabs, tabName);
         });
     }
-
 
 }

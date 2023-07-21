@@ -71,5 +71,4 @@ public class TabsPage {
         return this;
     }
 
-
 }
