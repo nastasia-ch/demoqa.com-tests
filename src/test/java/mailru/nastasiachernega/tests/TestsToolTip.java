@@ -13,7 +13,6 @@ import static io.qameta.allure.Allure.step;
 public class TestsToolTip extends WebDriverProvider {
 
     ToolTipsPage toolTipsPage = new ToolTipsPage();
-    TestDate testDate = new TestDate();
 
     @Epic("demoqa.com")
     @Feature("Tabs")
