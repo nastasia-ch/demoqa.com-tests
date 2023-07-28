@@ -15,7 +15,7 @@ public class WebDriverProvider {
     static void setUp() {
 
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadTimeout = 60000;
+        Configuration.pageLoadTimeout = 50000;
         SelenideLogger.addListener("allure", new AllureSelenide());
 
     }
